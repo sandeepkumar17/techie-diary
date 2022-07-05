@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @helper ActiveLink(string actionName, string controllerName, string areaName)
+    {
+        if (ViewContext.RouteData.Values["action"].ToString() == actionName &&
+                ViewContext.RouteData.Values["controller"].ToString() == controllerName &&
+                (ViewContext.RouteData.DataTokens["area"] == null 
+                || ViewContext.RouteData.DataTokens["area"].ToString() == areaName))
+        {
+            @:active
+        }
+    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="/">Bootstrap MVC Application</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="@ActiveLink("Index", "Home", null)">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="@ActiveLink("About", "Home", null)">@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="@ActiveLink("Contact", "Home", null)">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        @RenderSection("featured", required: false)
+        @RenderBody()
+        <hr />
+        <div class="footer">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MVCAppWithBootstrap/.vs/MVCAppWithBootstrap/config
+/MVCAppWithBootstrap/.vs/MVCAppWithBootstrap/v17
+/MVCAppWithBootstrap/MVCAppWithBootstrap/bin
+/MVCAppWithBootstrap/MVCAppWithBootstrap/obj/Debug
+/MVCAppWithBootstrap/packages
+/MVCAppWithBootstrap/MVCAppWithBootstrap.v11.suo
